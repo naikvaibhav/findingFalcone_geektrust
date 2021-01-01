@@ -1,0 +1,72 @@
+.container-fluid{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    /* padding: 0% 0 12% 0; */
+}
+
+p{
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+.vehicleContainer{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px; */
+    min-width: 800px;
+}
+
+.planetslist{
+    width: 200px;
+    margin: 60px auto;
+}
+
+
+.planet{
+    position: relative;
+    display: inline-block;
+    margin:16px;
+    padding: 17px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #211a1a;
+    cursor: pointer;
+    width: 200px;
+}
+
+h2,p{
+    color: white;
+}
+
+.planet h5, .planet p{
+    color: black;
+    margin: 0px;
+}
+.planet h5{
+    margin: 4px;
+  }
+
+.planet p{
+    font-size: 12px;
+    margin-top: 8px;
+}
+.planet img{
+    width: 64px;
+    height: 64px;
+}
+
+b{
+    font-size: 1.1em;
+}
+
+
+
+.form-select-sm {
+    padding-left: 1.5rem;
+}

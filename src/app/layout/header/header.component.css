@@ -1,0 +1,26 @@
+.header{
+    background-color: #fcae6f;
+    min-height: 8vh;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+    align-items: center;
+}
+
+.header :first-child{
+    flex: 3 1 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.header :last-child{
+    flex: 0 1 0;
+    padding-right: 2%;
+}
+
+a{
+    text-decoration: none;
+    color: #212529;
+    padding-bottom: 12px;
+}

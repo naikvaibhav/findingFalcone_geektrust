@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Finding Falcone</title>
+</head>
+
+<body>
+  <div class="homePage">
+    <app-header></app-header>
+    <div class="container-fluid" style="min-height: 87vh;">
+      <p class="text-center py-2">Select vehicles to be sent to each of the selected planets</p>
+      <div class="vehicleContainer" *ngIf="getAllVehicles">
+
+        <div class="row px-0 py-0">
+          <div class="col-md-2 text-center px-0" *ngFor="let vehicle of getAllVehicles; let vehicleIndex = index;">
+            <div class="planetList">
+              <div class="planet">
+                <img [src]="imagesPath(vehicle.name, 'vehicle')" />
+                <h5> {{ vehicle.name }} </h5>
+                <p> <b>Distance</b> - {{ vehicle.max_distance }} megamiles </p>
+                <p> <b>Speed</b> - {{ vehicle.speed }} megamiles/hr </p>
+
+                <select class="form-select form-select-sm" #selectPlanet
+                  (change)="selected($event.target!, vehicle.name)">
+                  <option disabled selected hidden>Send to</option>
+                  <ng-container *ngFor="let planet of getAllPlanets; let i = index; trackBy: trackByMethod">
+                    <option [value]="planet.name" [id]="i"
+                      [disabled]="planet.distance > vehicle.max_distance || isSelected(planet.name)">{{planet.name}}
+                    </option>
+                  </ng-container>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row px-5 py-0 mx-5">
+          <div class="col-md-3 text-center px-0" *ngFor="let planet of getAllPlanets; let planetIndex = index;">
+            <div class="planetList">
+              <div class="planet">
+                <img [src]="imagesPath(planet.name, 'planet')" />
+                <h5> {{ planet.name }} </h5>
+                <p> <b>Distance</b> - {{ planet.distance }} megamiles </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="float: right;">Total time to reach all the planets : {{totalTime}}</p>
+
+        <div class="d-grid gap-2 col-12 mx-auto py-2">
+          <button type="button" *ngIf="selectedPlanets?.size === 4" class="btn btn-secondary text-center"
+            (click)="findFalcone()">Find Falcone</button>
+        </div>
+
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</body>
+
+</html>

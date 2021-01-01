@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Finding Falcone</title>
+</head>
+
+<body>
+  <div class="homePage">
+    <app-header></app-header>
+    <div class="container-fluid" style="min-height: 87vh;">
+      <p class="text-center py-2">Select 4 out of 6 planets where you want to search AI Falcone</p>
+      <div class="planetContainer px-4" *ngIf="getAllPlanets">
+        <div class="row px-0 py-0" *ngIf="getAllPlanets">
+          <div class="col-md-4 text-center px-0" *ngFor="let planet of getAllPlanets; let i = index">
+            <div class="planetList">
+              <div class="planet" (click)="clickEventOnSelection(planet, i)">
+                <div [ngClass]="planet.selected ? 'selected' : ''"></div>
+                <img [src]="imagesPath(planet.name)" />
+                <h5> {{ planet.name }} </h5>
+                <p> <b>Distance</b> - {{ planet.distance }} megamiles </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto py-2">
+          <button type="button" *ngIf="selectedPlanets.length === 4" class="btn btn-secondary text-center"
+            [routerLink]="['/vehicle']">Let's select the vehicles to travel to these planets > </button>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</body>
+
+</html>

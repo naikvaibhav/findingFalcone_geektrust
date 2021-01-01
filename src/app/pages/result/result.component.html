@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Finding Falcone</title>
+</head>
+<body>
+<div class="homePage">
+<app-header></app-header>
+<div class="container-fluid"  style="min-height: 87vh;">
+    <div class="mainSection">
+    <div *ngIf="result === 'success'" class="card" style="width: 20rem;">
+        <img src="../../../assets/images/falcon_ai.png" height="280px" width="200px" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title">Congratulations! You discovered AI Falcone on planet {{foundOnPlanet}}</h5>
+          <a href="#" class="btn btn-primary" (click)="goBack()">Start again</a>
+        </div>
+      </div>
+
+      <div *ngIf="result === 'false'" class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Failed to find AI Falcone</h5>
+          <a href="#" class="btn btn-primary" (click)="goBack()">Start again</a>
+        </div>
+      </div>
+
+    </div>
+</div>
+<app-footer></app-footer>
+</div>
+</body>
+</html>
